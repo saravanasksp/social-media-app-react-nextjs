@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+
+  --color-cream: #faf6ef;
+  --color-paper: #fffdf9;
+  --color-ink: #1d1916;
+  --color-muted: #7d7166;
+  --color-line: #ebe1d3;
+  --color-sand: #f1e7d9;
+  --color-brand: #c8502b;
+  --color-brand-dark: #9e3c1d;
+  --color-brand-soft: #f8e6dc;
+  --color-forest: #2f4a3f;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: #f2c9b6;
+    color: #1d1916;
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes vignette-pop {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(0.96);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes vignette-burst {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes vignette-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes vignette-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-pop {
+  animation: vignette-pop 0.4s ease-out;
+}
+
+.animate-burst {
+  animation: vignette-burst 0.8s ease-out forwards;
+}
+
+.animate-rise {
+  animation: vignette-rise 0.35s ease-out both;
+}
+
+.animate-fade {
+  animation: vignette-fade 0.2s ease-out both;
+}
+
+.grain {
+  background-image: radial-gradient(rgba(29, 25, 22, 0.09) 0.5px, transparent 0.5px);
+  background-size: 4px 4px;
+}
